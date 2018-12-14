@@ -12,17 +12,37 @@ const webpack = require('webpack');
 
 const pages = require('./src/pages');
 let renderedPages = [];
-for (let i = 0; i < pages.length; i++) {
-  let page = Object.assign({}, pages[i]);
-  renderedPages.push(
-    new HtmlWebpackPlugin({
-      template: page.template,
-      filename: page.output,
-      title: page.content.title,
-      description: page.content.description
-    })
-  );
-}
+
+const getHtmlPagesPlugins = (isMinify = false) => {
+	const minify = isMinify ? {
+		removeComments: true,
+		collapseWhitespace: false,
+		removeRedundantAttributes: true,
+		useShortDoctype: true,
+		removeEmptyAttributes: true,
+		removeStyleLinkTypeAttributes: true,
+		keepClosingSlash: true,
+		minifyJS: true,
+		minifyCSS: true,
+		minifyURLs: true
+	} : null;
+
+	for (let i = 0; i < pages.length; i++) {
+		let page = Object.assign({}, pages[i]);
+		renderedPages.push(
+			new HtmlWebpackPlugin({
+				template: page.template,
+				filename: page.output,
+				title: page.content.title,
+				description: page.content.description,
+				minify
+			})
+		);
+	}
+};
+
+getHtmlPagesPlugins(false);
+
 
 module.exports = (options) => {
   const dest = Path.join(__dirname, 'dist');
@@ -149,7 +169,7 @@ module.exports = (options) => {
     webpackConfig.plugins.push(
       new BrowserSyncPlugin({
         host: 'localhost',
-        port: 3001,
+        port: 3005,
         proxy: 'http://localhost:8081/',
         files: [{
           match: [
