@@ -17,7 +17,13 @@
 </head>
 
 <body class="theme-wrapper">
-  {{> @partial-block }}
+	{{> header home=this }}
+
+	{{#> wrapper modificator='some'}}
+
+		{{> @partial-block }}
+
+	{{/ wrapper}}
 </body>
 
 </html>

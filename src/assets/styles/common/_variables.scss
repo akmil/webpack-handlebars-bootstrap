@@ -18,6 +18,9 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1260px
 );
+
+$transition-base: .4s;
+
 $theme-colors: (
   primary: #E42E68,
   secondary: #4C5151
@@ -27,3 +30,5 @@ $secondary: map-get($map: $theme-colors, $key: "secondary");
 
 // Colors
 $text-color: #4C5151;
+
+$headerHeight: 56px;

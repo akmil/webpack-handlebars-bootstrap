@@ -1,3 +1,11 @@
+a {
+	color: var(--navColor);
+}
+
+main[role="main"] {
+ padding-top: $headerHeight;
+}
+
 .bg-dark {
 	background-color: var(--navBackground) !important;
 }

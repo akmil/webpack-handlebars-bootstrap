@@ -17,6 +17,7 @@ $default-font: 'Open Sans', sans-serif;
   --buttonBackground: #FFF;
   --navColor: #FFF;
   --navBackground: #343a40;
+	--navSubBackground: #343a40;
   --footerColor: #FFF;
   --footerBackground: #FFF;
   --footerAlignment: left;
@@ -29,6 +30,7 @@ $variables: (
   --buttonBackground: var(--buttonBackground),
   --navColor: var(--navColor),
   --navBackground: var(--navBackground),
+	--navSubBackground: var(--navSubBackground),
   --footerColor: var(--footerColor),
   --footerBackground: var(--footerBackground),
   --footerAlignment: var(--footerAlignment)

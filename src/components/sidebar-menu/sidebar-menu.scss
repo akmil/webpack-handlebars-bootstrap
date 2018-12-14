@@ -1,0 +1,20 @@
+
+.aside-burger-menu {
+  transition: $transition-base;
+  background-color: var(--navBackground);
+  overflow-x: hidden;
+  overflow-y: auto;
+	height: 100vw;
+	position: fixed;
+	padding-top: $headerHeight;
+
+	.nav-item__text {
+		transition: $transition-base;
+	}
+
+  .sidebar-sticky {
+    .nav-link {
+      text-decoration: none;
+    }
+  }
+}

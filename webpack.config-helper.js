@@ -1,6 +1,7 @@
 'use strict';
 
 const Path = require('path');
+const glob = require('glob');
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -89,11 +90,16 @@ module.exports = (options) => {
             helperDirs: [
               Path.join(__dirname, 'src', 'helpers')
             ],
-            partialDirs: [
+            /*partialDirs: [
               Path.join(__dirname, 'src', 'layouts'),
               Path.join(__dirname, 'src', 'components'),
-              Path.join(__dirname, 'src', 'pages')
-            ]
+              Path.join(__dirname, 'src', 'components/header'),
+              Path.join(__dirname, 'src', 'pages'),
+            ]*/
+						partialDirs: [Path.resolve(__dirname, 'src')].concat(glob.sync('**/', {
+							cwd: Path.resolve(__dirname, 'src'),
+							realpath: true
+						}))
           }
         },
         {

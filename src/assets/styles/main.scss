@@ -21,8 +21,12 @@
 @import "common/general";
 
 // Layouts
-@import "layouts/header";
-@import "layouts/sidebar";
+@import "../../components/header/header";
+@import "../../components/header/burger-menu/burger-menu";
+
+@import "../../components/sidebar-menu/sidebar-menu";
+@import "../../components/r-sidebar-menu/r-sidebar-menu";
+
 @import "layouts/footer";
 
 // Pages
