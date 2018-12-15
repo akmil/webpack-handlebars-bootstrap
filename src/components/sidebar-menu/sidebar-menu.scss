@@ -4,7 +4,7 @@
   background-color: var(--navBackground);
   overflow-x: hidden;
   overflow-y: auto;
-	height: 100vw;
+	height: 100vh;
 	position: fixed;
 	padding-top: $headerHeight;
 
@@ -19,7 +19,7 @@
   }
 
 	.collapse-sidebar-box {
-		bottom: 190px;
+		bottom: 0;
 		right: 0;
 		width: 100%;
 		border-top: 1px solid rgba(0, 0, 0, 0.25);

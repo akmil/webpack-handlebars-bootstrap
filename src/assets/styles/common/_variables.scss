@@ -31,4 +31,8 @@ $secondary: map-get($map: $theme-colors, $key: "secondary");
 // Colors
 $text-color: #4C5151;
 
+$zIndex-max: 10;
+$zIndex-mid: 5;
+$zIndex-min: 1;
+
 $headerHeight: 56px;

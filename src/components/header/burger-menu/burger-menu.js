@@ -42,7 +42,7 @@ function toggleHamburgerMenu(menuName) {
     $(hamburgerMenuCls).toggleClass(hamburgerMenuOpenedClass);
 
     if($(hamburgerButtonCls).hasClass(hamburgerButtonCloseClass)){
-			$('[data-toggle="tooltip"]').tooltip();
+			$('[data-toggle="tooltip"]').tooltip({container: 'html'});
 		}
 }
 

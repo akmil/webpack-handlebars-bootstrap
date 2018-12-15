@@ -6,6 +6,7 @@ $headerHeightDesktop: 140px;
   right: 0;
   position: fixed;
   transform: translateX(100%);
+	z-index: $zIndex-max;
 
   transition: $transition-base;
   background-color: var(--navBackground);
