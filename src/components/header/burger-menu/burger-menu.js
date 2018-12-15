@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+window.j$ = $;
+
 // const hamburgerButtonCls = '#aside_mobile__button';
 // const hamburgerMenuCls = '.aside-burger-menu';
 // const hamburgerMenuOpenedClass = 'burger-menu--closed';
@@ -11,6 +13,12 @@ const selectorsEl = {
         hamburgerMenuOpenedClass: 'burger-menu--closed',
         hamburgerButtonCloseClass: 'burger-menu__button--close'
     },
+		leftMenu_v2: {
+			hamburgerButtonCls: '.js_collapse-sidebar',
+			hamburgerMenuCls: '.aside-burger-menu',
+			hamburgerMenuOpenedClass: 'burger-menu--closed',
+			hamburgerButtonCloseClass: 'collapse-sidebar__button--close'
+		},
     rightMenu: {
         hamburgerButtonCls: '#header_mobile_toggler',
         hamburgerMenuCls: '.r-side-burger-menu',
@@ -33,9 +41,9 @@ function toggleHamburgerMenu(menuName) {
     $(hamburgerButtonCls).toggleClass(hamburgerButtonCloseClass);
     $(hamburgerMenuCls).toggleClass(hamburgerMenuOpenedClass);
 
-    // if(menuName === 'leftMenu'){
-    //     $('.nav-item__text').toggleClass('d-none');
-    // }
+    if($(hamburgerButtonCls).hasClass(hamburgerButtonCloseClass)){
+			$('[data-toggle="tooltip"]').tooltip();
+		}
 }
 
 /**
@@ -49,4 +57,11 @@ export function init() {
     $(selectorsEl[leftMenu].hamburgerButtonCls).on('click', toggleHamburgerMenu.bind(this, leftMenu));
     $(selectorsEl[rightMenu].hamburgerButtonCls).on('click', toggleHamburgerMenu.bind(this, rightMenu));
     $(selectorsEl[subHeader].hamburgerButtonCls).on('click', toggleHamburgerMenu.bind(this, subHeader));
+
+		$(selectorsEl['leftMenu_v2'].hamburgerButtonCls).on('click', function(e){
+			toggleHamburgerMenu('leftMenu_v2');
+		});
+
+		//initialize all tooltips on a page
+		// $('[data-toggle="tooltip"]').tooltip();
 }

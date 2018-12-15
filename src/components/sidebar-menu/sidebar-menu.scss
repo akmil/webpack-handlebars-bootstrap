@@ -17,4 +17,46 @@
       text-decoration: none;
     }
   }
+
+	.collapse-sidebar-box {
+		bottom: 190px;
+		right: 0;
+		width: 100%;
+		border-top: 1px solid rgba(0, 0, 0, 0.25);
+	}
+	.collapse-sidebar {
+		display: inline-block;
+		color: var(--navColor);
+		background: rgba(0, 0, 0, 0.25);
+		margin-right: 12px;
+		float: right;
+		border-radius: 4px;
+		&:hover {
+			cursor: pointer;
+		}
+
+		i.fas {
+			font-size: 24px;
+			padding: 5px;
+			&:hover {
+				color: var(--navColor);
+			}
+		}
+		.fa-angle-double-right {
+			display: none;
+		}
+		.fa-angle-double-left {
+			display: block;
+		}
+
+		&__button--close {
+			.fa-angle-double-left {
+				display: none;
+			}
+			.fa-angle-double-right {
+				display: block;
+			}
+			right: 12px;
+		}
+	}
 }
