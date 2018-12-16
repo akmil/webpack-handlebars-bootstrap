@@ -3,19 +3,59 @@
   transition: $transition-base;
   background-color: var(--navBackground);
   overflow-x: hidden;
-  overflow-y: auto;
-	height: 100vh;
+  overflow-y: auto;	
 	position: fixed;
 	padding-top: $headerHeight;
+	height: 100vh;
+	padding-right: 0;
 
 	.nav-item__text {
 		transition: $transition-base;
 	}
 
   .sidebar-sticky {
+		width: 100%;
+    display: inline-block;
+    position: relative;
+    height: calc(100vh - #{$headerHeight} - 50px);
+    overflow-y: auto;
+    overflow-x: hidden;
     .nav-link {
       text-decoration: none;
-    }
+	}
+	.sidebar-heading {
+		justify-content: space-between;
+		color: var(--gray);		
+		&:hover {
+			cursor: pointer;
+			color: var(--green);
+			a { 
+				color: var(--green);
+			}
+		}
+		a {
+			text-decoration: none;
+			color: var(--gray);
+			.fa-plus-circle {
+				display: none;
+			}
+		}
+		&.sidebar-heading__button--close {
+			&:hover{
+				// color: lawngreen;
+			}
+			+ .sidebar-heading-list--closed {
+				display: none;				
+			}
+			.fa-minus-circle {
+				display: none;
+			}
+			.fa-plus-circle {
+				display: block;
+			}
+		}
+	}
+	
   }
 
 	.collapse-sidebar-box {
@@ -25,7 +65,7 @@
 		border-top: 1px solid rgba(0, 0, 0, 0.25);
 	}
 	.collapse-sidebar {
-		display: inline-block;
+		// display: inline-block;
 		color: var(--navColor);
 		background: rgba(0, 0, 0, 0.25);
 		margin-right: 12px;

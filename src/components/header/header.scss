@@ -5,6 +5,7 @@ nav.navbar {
 }
 
 .navbar {
+	height: $headerHeight;
 	.js_theme {
 		.dropdown-item {
 			color: $blue;
@@ -18,3 +19,22 @@ nav.navbar {
 		}
 	}
 }
+
+// todo: move sub-header to separade component
+.sub-header {
+	position: fixed;
+	top: $headerHeight;
+	width: 100%;
+	  background-color: var(--navSubBackground);
+	transform: translateY(-50px);
+	transition: $transition-base;
+	z-index: 1;
+	margin-left: 16.66667%;
+	  box-shadow: $box-shadow; //from bootstrap
+	&--open {
+	  transform: translateY(0);
+	}
+	.nav-link {
+
+	}
+  }

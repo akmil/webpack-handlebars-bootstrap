@@ -7,9 +7,11 @@ function updateTheme(oldKeyArray, newValue) {
 }
 
 export function init() {
-	const colorsToUpdate = ['--cardColor','--navBackground'];
-	const colorsToUpdateMiddle = ['--navSubBackground'];
+	const colorsToUpdate = ['--cardColor', '--navBackground'];
+	const colorsToUpdateMiddle = ['--navSubBackground', '--gray'];
+	const colorsToUpdateMiddle_hover =  ['--green'];
 	const colorsToUpdateInverted = ['--navColor'];
+
 
 	$('.dropdown-item', '.js_theme').on('click', function(e){
 		if ($(this).index() === 0) {
@@ -22,6 +24,7 @@ export function init() {
 			updateTheme(colorsToUpdate, 'var(--orange)');
 			updateTheme(colorsToUpdateInverted, 'var(--dark)');
 			updateTheme(colorsToUpdateMiddle, 'var(--yellow)');
+			updateTheme(colorsToUpdateMiddle_hover, 'var(--styckyHeading_hover)');
 		}
 
 		if ($(this).index() === 2) {

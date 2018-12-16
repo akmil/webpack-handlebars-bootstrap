@@ -10,27 +10,35 @@ $default-font: 'Open Sans', sans-serif;
 	--dark: #1f1f1f;
 	--blue: #3177cc;
 	--orange: #cc7c13;
-	--green: #0ccc39;
+  --green: lawngreen; //#0ccc39;
+  --gray: #7d7d7d;
+  
   --cardColor: #3177cc;
   --cardBackground: #FFF;
   --buttonColor: #FFF;
   --buttonBackground: #FFF;
   --navColor: #FFF;
+  --navColor_hover: rgba(0,0,0,0.25);
   --navBackground: #343a40;
-	--navSubBackground: #343a40;
+  --navSubBackground: #343a40;
+  --styckyHeading_hover: #ffe492;
   --footerColor: #FFF;
   --footerBackground: #FFF;
   --footerAlignment: left;
 }
 
 $variables: (
+  --gray: var(--gray),
+  --green: var(--green),
   --cardColor: var(--cardColor),
   --cardBackground: var(--cardBackground),
   --buttonColor: var(--buttonColor),
   --buttonBackground: var(--buttonBackground),
   --navColor: var(--navColor),
+  --navColor_hover: var(--navColor_hover),
   --navBackground: var(--navBackground),
-	--navSubBackground: var(--navSubBackground),
+  --navSubBackground: var(--navSubBackground),
+  --styckyHeading_hover: var(--styckyHeading_hover),
   --footerColor: var(--footerColor),
   --footerBackground: var(--footerBackground),
   --footerAlignment: var(--footerAlignment)

@@ -1,11 +1,21 @@
 $menu-line-color: #484f66;
 $dot-btn-diameter: 5px;
+$closed-aside-menu-width: 72px;
 
-.burger-menu {
+.aside-burger-menu.burger-menu {
   &--closed {
     transform: translateX(-22%);
     transition: $transition-base;
-		width: 70px;
+    width: $closed-aside-menu-width;
+    .sidebar-sticky {
+      width: calc(#{$closed-aside-menu-width} - 4px);
+      padding-right: 0;
+      
+      .sidebar-heading {
+        justify-content: flex-start;
+      }
+    }
+   
 		.nav-item__text {
 			width: 0;
 			font-size: 0;
@@ -40,10 +50,10 @@ $dot-btn-diameter: 5px;
       margin: 0 0 0 10px;
 
       &:hover span{
-        background-color: var(--cardColor);
+        background-color: var(--navColor_hover);
         &::before,
         &::after {
-          background-color: var(--cardColor);
+          background-color: var(--navColor_hover);
         }
       }
 
@@ -116,17 +126,4 @@ $dot-btn-diameter: 5px;
 }
 
 //
-.sub-header {
-  position: fixed;
-  top: $headerHeight;
-  width: 100%;
-	background-color: var(--navSubBackground);
-  transform: translateY(-50px);
-  transition: $transition-base;
-  z-index: -1;
-  margin-left: 16.66667%;
-	box-shadow: $box-shadow; //from bootstrap
-  &--open {
-    transform: translateY(0);
-  }
-}
+
