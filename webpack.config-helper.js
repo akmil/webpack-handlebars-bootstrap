@@ -50,11 +50,38 @@ module.exports = (options) => {
 
   let webpackConfig = {
     devtool: options.devtool,
-    entry: ['./src/app.js'],
+    // entry: {
+		// 	about: './src/test-chunk.js',
+		// 	home: './src/app.js'
+		// },
+		entry: [
+			'./src/test-chunk.js',
+			'./src/app.js'
+		],
     output: {
       path: dest,
-      filename: './assets/scripts/[name].[hash].js'
+      filename: './assets/scripts/app.[hash].js',
+			chunkFilename: '[name].chunk.js',
     },
+		optimization: {
+			splitChunks: {
+				cacheGroups: {
+					vendor: {
+						name: 'vendors',
+						test: /node_modules/,
+						chunks: 'all',
+						enforce: true
+					},
+					// commons: {
+					// 	name: 'commons',
+					// 	chunks: 'initial',
+					// 	minChunks: 2,
+					// 	minSize: 0
+					// }
+				}
+			},
+			occurrenceOrder: true // To keep filename consistent between different modes (for example building only)
+		},
     plugins: [
       new Webpack.ProvidePlugin({
         $: 'jquery',
@@ -175,8 +202,8 @@ module.exports = (options) => {
     webpackConfig.plugins.push(
       new BrowserSyncPlugin({
         host: 'localhost',
-        port: 3005,
-        proxy: 'http://localhost:8081/',
+        port: 8081,
+        proxy: 'http://localhost:8082/',
         files: [{
           match: [
             '**/*.hbs'

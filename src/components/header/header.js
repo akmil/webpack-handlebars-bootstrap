@@ -6,7 +6,7 @@ function updateTheme(oldKeyArray, newValue) {
 	});
 }
 
-export function init() {
+function init() {
 	const colorsToUpdate = ['--cardColor', '--navBackground'];
 	const colorsToUpdateMiddle = ['--navSubBackground', '--gray'];
 	const colorsToUpdateMiddle_hover =  ['--green'];
@@ -35,3 +35,12 @@ export function init() {
 
 	});
 }
+
+function test() {
+	console.log('tets lazy load');
+}
+
+export {
+	init,
+	test
+};
