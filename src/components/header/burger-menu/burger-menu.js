@@ -1,6 +1,3 @@
-import $ from 'jquery';
-
-// window.j$ = $;
 
 const selectorsEl = {
     leftMenu: {
@@ -9,6 +6,7 @@ const selectorsEl = {
         hamburgerMenuOpenedClass: 'burger-menu--closed',
         hamburgerButtonCloseClass: 'burger-menu__button--close'
     },
+    // eslint-disable-next-line camelcase
     leftMenu_v2: {
         hamburgerButtonCls: '.js_collapse-sidebar',
         hamburgerMenuCls: '.aside-burger-menu',
@@ -20,7 +18,7 @@ const selectorsEl = {
         hamburgerMenuCls: '.js_sidebar-heading-list',
         hamburgerMenuOpenedClass: 'sidebar-heading-list--closed',
         hamburgerButtonCloseClass: 'sidebar-heading__button--close'
-    },    
+    },
     rightMenu: {
         hamburgerButtonCls: '#header_mobile_toggler',
         hamburgerMenuCls: '.r-side-burger-menu',
@@ -39,32 +37,36 @@ const selectorsEl = {
  * Toggle hamburger menu popover
  */
 function toggleHamburgerMenu(menuName) {
-    const {hamburgerMenuCls, hamburgerButtonCls, hamburgerButtonCloseClass, hamburgerMenuOpenedClass} = selectorsEl[menuName];
+    const {
+        hamburgerMenuCls, hamburgerButtonCls, hamburgerButtonCloseClass, hamburgerMenuOpenedClass
+    } = selectorsEl[menuName];
     $(hamburgerButtonCls).toggleClass(hamburgerButtonCloseClass);
-    $(hamburgerMenuCls).toggleClass(hamburgerMenuOpenedClass);    
+    $(hamburgerMenuCls).toggleClass(hamburgerMenuOpenedClass);
 
-    if($(hamburgerButtonCls).hasClass(hamburgerButtonCloseClass)){
-			$('[data-toggle="tooltip"]').tooltip({container: 'html'});
-		}
+    console.log(selectorsEl[menuName]);
+    if ($(hamburgerButtonCls).hasClass(hamburgerButtonCloseClass)) {
+        $('[data-toggle="tooltip"]').tooltip({ container: 'html' });
+    }
 }
 
-/**
- * Init hamburger menu
- */
-export function init() {
+function init(component) {
     const leftMenu = 'leftMenu';
     const rightMenu = 'rightMenu';
     const subHeader = 'subHeader';
-    const plusBtn = 'sidebarHeading';
-    
+    const plusBtn = 'sidebarHeading'; // todo: move in separate component, right '+' button is bugged
 
-    $(selectorsEl[leftMenu].hamburgerButtonCls).on('click', toggleHamburgerMenu.bind(this, leftMenu));
-    $(selectorsEl[rightMenu].hamburgerButtonCls).on('click', toggleHamburgerMenu.bind(this, rightMenu));
-    $(selectorsEl[subHeader].hamburgerButtonCls).on('click', toggleHamburgerMenu.bind(this, subHeader));
+    $(selectorsEl[leftMenu].hamburgerButtonCls, component).on('click', toggleHamburgerMenu.bind(this, leftMenu));
+    $(selectorsEl[rightMenu].hamburgerButtonCls, component).on('click', toggleHamburgerMenu.bind(this, rightMenu));
+    $(selectorsEl[subHeader].hamburgerButtonCls, component).on('click', toggleHamburgerMenu.bind(this, subHeader));
 
-    $(selectorsEl[plusBtn].hamburgerButtonCls).on('click', toggleHamburgerMenu.bind(this, plusBtn));    
-
-    $(selectorsEl['leftMenu_v2'].hamburgerButtonCls).on('click', function(e){
+    // todo: move in separate component
+    $(selectorsEl[plusBtn].hamburgerButtonCls).on('click', toggleHamburgerMenu.bind(this, plusBtn));
+    $(selectorsEl.leftMenu_v2.hamburgerButtonCls).on('click', e => {
         toggleHamburgerMenu('leftMenu_v2');
     });
 }
+
+export default component => {
+    console.log('HamburgerMenu', component);
+    init(component);
+};
